@@ -38,12 +38,12 @@ namespace GloboTicket.TicketManagement.Infrastructure.Mail
             var sendGridMessage = MailHelper.CreateSingleEmail(from, to, subject, emailBody, emailBody);
             var response = await client.SendEmailAsync(sendGridMessage);
 
-            _logger.LogInformation("Email sent");
+            // _logger.LogInformation("Email sent");
 
             if (response.StatusCode == System.Net.HttpStatusCode.Accepted || response.StatusCode == System.Net.HttpStatusCode.OK)
                 return true;
 
-            _logger.LogError("Email sending failed");
+            // _logger.LogError("Email sending failed");
 
             return false;
         }
